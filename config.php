@@ -1,6 +1,7 @@
 <?php
-db_username="";
-db_password="verystrongpassword";
-db_name="";
-db_ip="";
+$dbusername  ="root";
+$dbpassword="verystrongpassword";
+$servername  = "localhost";
+$port        = "3306";
+$dbname      = "seabattles";
 ?>
