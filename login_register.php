@@ -7,7 +7,7 @@ if exists
   check password
     if passord correct
       login
-    else
+    else  
       redirect to passrestore page
         
 ?>
