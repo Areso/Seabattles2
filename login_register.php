@@ -31,7 +31,39 @@ if (!mysqli_set_charset($conn, "utf8")) {
   //  printf("Current character set: %s\n", mysqli_character_set_name($conn));
 }
 
-check user
+$query_line = "SELECT 
+ * 
+ FROM seabattles
+ WHERE (oc_product.manufacturer_id = 15 ||
+ oc_product.manufacturer_id = 17 ||
+ oc_product.manufacturer_id = 16) &&
+ oc_product.product_id > ".$LowBorder." && oc_product.product_id < ".$HighBorder. 
+ "&& oc_product.status = 1 
+ ORDER BY oc_product.product_id";
+// oc_product.product_id > ".$LowBorder." && oc_product.product_id < ".$HighBorder.
+//echo $query_line;
+echo "<html><body>";
+$query = mysqli_query($conn, $query_line);
+$field = mysqli_field_count($conn);
+// create line with field names
+//create 
+// loop through database query and fill export variable
+$MyArrayOfAvailItems=array();
+echo "all items in range from your store"."<br>";
+while($row = mysqli_fetch_array($query)) {
+    // create line with field values
+	//echo "HW";
+    for($i = 0; $i < $field; $i++) {
+		if ($i==1) {
+			$model_id	= $row[mysqli_fetch_field_direct($query, $i)->name];
+			echo $model_id;
+			echo '
+					';            
+			array_push($MyArrayOfAvailItems, $model_id);	
+		}
+	}	
+}
+
 if doesn't exist
   create new user    
 if exists     
