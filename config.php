@@ -1,6 +1,6 @@
 <?php
 $dbusername  ="root";
-$dbpassword="test0000";
+$dbpassword="myverystrongpassword";
 $servername  = "localhost";
 $port        = "3306";
 $dbname      = "seabattles";
