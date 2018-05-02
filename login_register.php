@@ -3,7 +3,7 @@ connect db
 check user
 if doesn't exist
   create new user    
-if exists 
+if exists     
   check password 
     if passord correct
       login
