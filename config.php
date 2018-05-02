@@ -1,7 +1,7 @@
 <?php
-$dbusername  ="root";
-$dbpassword="test0000";
-$servername  = "localhost";
-$port        = "3306";
-$dbname      = "seabattles";
+$DB_USERNAME ="root";
+$DB_PASSWORD ="test0000";
+$DB_HOSTNAME ="localhost";
+$DB_PORT     ="3306";
+$DB_DATABASE ="seabattles";
 ?>
