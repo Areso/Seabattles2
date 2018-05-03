@@ -36,7 +36,7 @@ $query_line = "SELECT
  * 
  FROM accounts
  WHERE email = '".$email."'";
-echo $query_line."<br>";
+//echo $query_line."<br>";
 $query = mysqli_query($conn, $query_line) or die("Query error: ".mysqli_error());
 
 $field = mysqli_field_count($conn);
@@ -45,27 +45,31 @@ echo $field."<br>";
 //create 
 // loop through database query and fill export variable
 
-
+$account_found = false;
 while($row = mysqli_fetch_array($query)) {
-    for($i = 0; $i < $field; $i++) {
-		if ($i==1) {
+	for($i = 0; $i < $field; $i++) {
+		if ($i==2) {
 			$pass_from_db = $row[mysqli_fetch_field_direct($query, $i)->name];
-			echo $pass_from_db;
-			echo '
-					';            
-			
+			$account_found = true;
+			echo 'account is found!';
 		}
 	}	
 }
 
-/*
-if result is zero and thus user doesn't exist
-   create new user with provided email and pass
-if exists     
+if ($account_found == false) {
+    $query_line = "INSERT INTO 
+     accounts ('email', 'passwordh') VALUES 
+     ('".$email."','".md5($password)."');";
+    $query = mysqli_query($conn, $query_line) or die("Query error: ".mysqli_error());
+	//session start, redirect to char selection screen
+}
+if ($account_found = true) {
+  /*
   check password 
     if passord correct
-      login
+      session start, redirect to char selection screen
     else    
       redirect to passrestore page
-*/        
+  */        
+}
 ?>
