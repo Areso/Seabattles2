@@ -40,7 +40,7 @@ $query_line = "SELECT
 $query = mysqli_query($conn, $query_line) or die("Query error: ".mysqli_error());
 
 $field = mysqli_field_count($conn);
-echo $field."<br>";
+//echo $field."<br>";
 // create line with field names
 //create 
 // loop through database query and fill export variable
@@ -58,9 +58,20 @@ while($row = mysqli_fetch_array($query)) {
 
 if ($account_found == false) {
     $query_line = "INSERT INTO 
-     accounts ('email', 'passwordh') VALUES 
+     accounts (email, passwordh) VALUES 
      ('".$email."','".md5($password)."');";
-    $query = mysqli_query($conn, $query_line) or die("Query error: ".mysqli_error());
+     echo $query_line;
+    $result = mysqli_query($conn, $query_line) or die("Query error: ".mysqli_error());
+    
+    /*
+    $stmt = mysqli_prepare($link, $query);
+	mysqli_stmt_bind_param($stmt, "sss", $val1, $val2, $val3);
+	$val1 = 'abc';
+	$val2 = 'cde';
+	$val3 = 'qwe';
+	mysqli_stmt_execute($stmt);
+    */
+    
 	//session start, redirect to char selection screen
 }
 if ($account_found = true) {
