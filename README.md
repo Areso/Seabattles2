@@ -1,11 +1,11 @@
 <html>
 <head>
 <title>
-Seabattles 2
+Seabattles
 </title>
 </head>
 <body>
-<h1>Seabattles 2</h1></br>
+<h1>Seabattles</h1></br>
 This is a client-server turn-based MMORPG</br>
 All players placed their command within turntime and then, when turn is ended, server calculating result of the turn</br>
 Thus, this game is simultanenious</br>
@@ -15,7 +15,8 @@ If usual game about sea is about wars between human nations in Carib sea, this i
 When you start game, you can select one of a few races:</br>
 humans, orcs, elves, dwarves, furries, and others.</br>
 Each race has uniq abilities and ships, so gamestyle will be different when you play for this races.</br>
-Of course, there are clan system, exping, and so on.</br>
+Of course, there are guild system, exping, and so on.</br>
+The game is creating because of I want to recreate MMORPG style. There is full loot after each death, for an example.<br>
 <h1>System requirements</h1>
 <h2>for server:</h2>
 PHP 5.5+<br>

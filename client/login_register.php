@@ -12,6 +12,7 @@ error_reporting('E_ALL');
 //if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = test_input($_POST["email"]);
   $password = test_input($_POST["password"]);
+  $tos_accepted = test_input($_POST["tos_accepted"]);
 //}
 function test_input($data) {
   $data = trim($data);
@@ -57,6 +58,17 @@ while($row = mysqli_fetch_array($query)) {
 }
 
 if ($account_found == false) {
+	$allow_account_creation = true;
+	$error_while_account_creation = "";
+	if (md5($password)=="") {
+		$allow_account_creation = false;
+		$error_while_account_creation = $error_while_account_creation."password cannot be blank!<br>";
+	}
+	if ($tos_accepted==false) {
+		$allow_account_creation = false;
+		$error_while_account_creation = $error_while_account_creation."you should accept Terms of Service!<br>";
+	}
+	if ($allow_account_creation==true) {
     $query_line = "INSERT INTO 
      accounts (email, passwordh) VALUES 
      ('".$email."','".md5($password)."');";
@@ -71,8 +83,8 @@ if ($account_found == false) {
 	$val3 = 'qwe';
 	mysqli_stmt_execute($stmt);
     */
-    
-	//session start, redirect to char selection screen
+    //session start, redirect to char selection screen
+	}
 }
 if ($account_found = true) {
   /*
