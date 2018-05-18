@@ -15,8 +15,8 @@ If usual game about sea is about wars between human nations in Carib sea, this i
 When you start game, you can select one of a few races:</br>
 humans, orcs, elves, dwarves, furries, and others.</br>
 Each race has uniq abilities and ships, so gamestyle will be different when you play for this races.</br>
-Of course, there are guild system, exping, and so on.</br>
-The game is creating because of I want to recreate MMORPG style. There is full loot after each death, for an example.<br>
+Of course, there is guild system, exping, and so on.</br>
+The game is creating because of I want to recreate old MMORPG style. There is full loot after each death, for an example.<br>
 <h1>System requirements</h1>
 <h2>for server:</h2>
 PHP 5.5+<br>

@@ -7,8 +7,6 @@ ini_set("default_charset",'utf-8');//utf-8 windows-1251
 ini_set('display_errors', 1);
 error_reporting('E_ALL');
 
-//session_start();
-//$_SESSION['login']='hw';
 //if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = test_input($_POST["email"]);
   $password = test_input($_POST["password"]);
@@ -60,21 +58,25 @@ while($row = mysqli_fetch_array($query)) {
 if ($account_found == false) {
 	$allow_account_creation = true;
 	$error_while_account_creation = "";
-	if (md5($password)=="") {
+	if ($password=="") {
+		echo "password is null";
 		$allow_account_creation = false;
-		$error_while_account_creation = $error_while_account_creation."password cannot be blank!<br>";
+		$error_while_account_creation = $error_while_account_creation."?p=0";
 	}
 	if ($tos_accepted==false) {
 		$allow_account_creation = false;
-		$error_while_account_creation = $error_while_account_creation."you should accept Terms of Service!<br>";
+		$error_while_account_creation = $error_while_account_creation."?t=0";
 	}
 	if ($allow_account_creation==true) {
     $query_line = "INSERT INTO 
      accounts (email, passwordh) VALUES 
      ('".$email."','".md5($password)."');";
-     echo $query_line;
+    //echo $query_line;
     $result = mysqli_query($conn, $query_line) or die("Query error: ".mysqli_error());
     
+	$_SESSION['login']   = $email;
+	$newURL = '/client/charselection.html';
+	header('Location: '.$newURL);
     /*
     $stmt = mysqli_prepare($link, $query);
 	mysqli_stmt_bind_param($stmt, "sss", $val1, $val2, $val3);
@@ -84,15 +86,23 @@ if ($account_found == false) {
 	mysqli_stmt_execute($stmt);
     */
     //session start, redirect to char selection screen
+	} else {
+		$newURL = '/client/index.html'.$error_while_account_creation;
+		header('Location: '.$newURL);
+		//todo redirect with parameters and parsing parameters in JS in HTML page
 	}
 }
-if ($account_found = true) {
-  /*
-  check password 
-    if passord correct
-      session start, redirect to char selection screen
-    else    
-      redirect to passrestore page
-  */        
+if ($account_found == true) {
+  if (md5($password) == $pass_from_db) {
+		session_start();
+		$_SESSION['login']   = $email;
+		$newURL = '/client/charselection.html';
+		header('Location: '.$newURL);
+  } else {
+	$error_wrong_password = "?wp=0"; //"wrong password! Try again or Restore the password";
+	$newURL = '/client/index.html'.$error_wrong_password;
+	header('Location: '.$newURL);
+	//todo redirect with parameters and parsing parameters in JS in HTML page
+  }
 }
 ?>

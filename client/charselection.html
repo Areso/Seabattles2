@@ -1,0 +1,33 @@
+﻿<html>
+	<head>
+		<title>Seabattles</title>
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<!-- type="image/ico" -->
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+	</head>
+	<script>
+	loadDoc("/client/getcharlist.php", getCharsList);
+	function loadDoc(url, cFunction) {
+	  var xhttp;
+	  xhttp=new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+		  cFunction(this);
+		}
+	 };
+	  xhttp.open("POST", url, true);
+	  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	  xhttp.send();
+	}
+
+	function getCharList(xhttp) {
+	  // action goes here
+	  window.getElementById("test").innerHTML = "test";
+	} 
+	
+	</script>
+	<body>
+		char selection form<br><br>
+		<div id="test">empty</div>
+	</body>
+</html>

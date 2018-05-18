@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `passwordh` varchar(100) NOT NULL,
   PRIMARY KEY (`id_account`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `accounts` (`id_account`, `email`, `passwordh`) VALUES
 (1, 'returnstrike@ya.ru', 'fd8e1b2ec2f403c60d5085b62722b704');
