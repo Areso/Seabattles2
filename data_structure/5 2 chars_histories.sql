@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 30, 2018 at 10:22 PM
+-- Generation Time: May 30, 2018 at 11:04 PM
 -- Server version: 5.5.60-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.25
 
@@ -65,7 +65,7 @@ INSERT INTO `chars_histories` (`id_history`, `id_race`, `gender`, `playable`, `b
 (21, 4, 1, 1, '3', 'Orphaned at 5 years. All settlement was slaughtered. Street became his home. At ten years he entered the service as cabin boy at famous smuggler the Thorin Firebeard. Been caught, imprisoned. After Royal parole has bad relationship with all races, but dwarves (good)'),
 (22, 4, 2, 1, '1', 'She has finished his service in Iron Fleet after a conflict with superior officer. But still she has advanced military skills, friends in navy, and decommissioned training ship, equipped with military equipment. Good relations with all races, but orcs (neutral)'),
 (23, 4, 2, 1, '2', 'Father dropped she as service girl to old merchant. Years passed, she has now a little trade ship, haggling skills, and round account in a bank. Neutral relations will all races, but dwarves (good)'),
-(24, 4, 1, 1, '3', 'Orphaned at 5 years. All settlement was slaughtered. Street became his home. At ten years she entered the service as cabin boy at famous smuggler the Thorin Firebeard. Been caught, imprisoned. After Royal parole has bad relationship with all races, but dwarves (good)');
+(24, 4, 2, 1, '3', 'Orphaned at 5 years. All settlement was slaughtered. Street became his home. At ten years she entered the service as cabin boy at famous smuggler the Thorin Firebeard. Been caught, imprisoned. After Royal parole has bad relationship with all races, but dwarves (good)');
 
 --
 -- Constraints for dumped tables
