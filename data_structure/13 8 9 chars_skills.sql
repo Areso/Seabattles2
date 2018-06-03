@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 31, 2018 at 11:28 PM
+-- Generation Time: Jun 01, 2018 at 09:35 PM
 -- Server version: 5.5.60-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.25
 
@@ -23,26 +23,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chars`
+-- Table structure for table `chars_skills`
 --
 
-CREATE TABLE IF NOT EXISTS `chars` (
+CREATE TABLE IF NOT EXISTS `chars_skills` (
+  `id_chars_skills` int(11) NOT NULL,
   `id_char` int(11) NOT NULL,
-  `id_account` int(11) NOT NULL,
-  `id_race` int(11) NOT NULL,
-  `gender` tinyint(4) NOT NULL,
-  `id_portrait` int(11) NOT NULL,
-  `id_history` int(11) NOT NULL,
-  `id_guild` int(11) DEFAULT NULL,
-  `char_name` varchar(50) NOT NULL,
-  `coordx` int(11) NOT NULL,
-  `coordy` int(11) NOT NULL,
-  `lvl` int(11) NOT NULL,
-  `playable` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id_char`),
-  UNIQUE KEY `char_name` (`char_name`),
-  KEY `id_account` (`id_account`,`id_race`,`id_portrait`,`id_history`,`id_guild`)
+  `id_skill` int(11) NOT NULL,
+  `level` int(11) NOT NULL,
+  PRIMARY KEY (`id_chars_skills`),
+  UNIQUE KEY `id_char` (`id_char`),
+  KEY `id_skill` (`id_skill`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `chars_skills`
+--
+ALTER TABLE `chars_skills`
+  ADD CONSTRAINT `chars_skills_id_skill` FOREIGN KEY (`id_skill`) REFERENCES `skills_ref` (`id_skill`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `chars_skills_id_char` FOREIGN KEY (`id_char`) REFERENCES `chars` (`id_char`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -6,14 +6,10 @@ $query_line = "SELECT
  * 
  FROM accounts
  WHERE email = '".$email."'";
-//echo $query_line."<br>";
+
 $query = mysqli_query($conn, $query_line) or die("Query error: ".mysqli_error());
 
 $field = mysqli_field_count($conn);
-//echo $field."<br>";
-// create line with field names
-//create 
-// loop through database query and fill export variable
 
 $account_found = false;
 while($row = mysqli_fetch_array($query)) {

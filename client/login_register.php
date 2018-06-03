@@ -75,7 +75,7 @@ if ($account_found == false) {
     $result = mysqli_query($conn, $query_line) or die("Query error: ".mysqli_error());
     
 	$_SESSION['login']   = $email;
-	$newURL = '/charselection.php';
+	$newURL = '/charselection.html';
 	header('Location: '.$newURL);
     /*
     $stmt = mysqli_prepare($link, $query);
@@ -96,7 +96,7 @@ if ($account_found == true) {
   if (md5($password) == $pass_from_db) {
 		session_start();
 		$_SESSION['login']   = $email;
-		$newURL = '/charselection.php';
+		$newURL = '/charselection.html';
 		header('Location: '.$newURL);
   } else {
 	$error_wrong_password = "?wp=0"; //"wrong password! Try again or Restore the password";

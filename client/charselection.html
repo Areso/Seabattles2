@@ -5,8 +5,19 @@
 		<!-- type="image/ico" -->
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 	</head>
+	
+	<body>
+	<div id="demo">
+		<h1>Your chars</h1>
+		<button type="buttonPlay" onclick="loadDoc('getcharlist.php', myFunction)">Play</button>
+		<button type="buttonDelete" onclick="loadDoc('getcharlist.php', myFunction)">Delete</button>
+		<button type="buttonCreate" onclick="loadDoc('getcharlist.php', myFunction)">Delete</button>
+	</div>
+
 	<script>
-	loadDoc("/client/getcharlist.php", getCharsList);
+	window.onload = function() {
+		loadDoc('getcharlist.php', myFunction);
+	}
 	function loadDoc(url, cFunction) {
 	  var xhttp;
 	  xhttp=new XMLHttpRequest();
@@ -14,20 +25,16 @@
 		if (this.readyState == 4 && this.status == 200) {
 		  cFunction(this);
 		}
-	 };
+	  };
 	  xhttp.open("POST", url, true);
 	  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	  xhttp.send();
+	xhttp.send("fname=Henry&lname=Ford"); 
+	  //xhttp.send();
 	}
-
-	function getCharList(xhttp) {
-	  // action goes here
-	  window.getElementById("test").innerHTML = "test";
-	} 
-	
+	function myFunction(xhttp) {
+	  document.getElementById("demo").innerHTML =
+	  xhttp.responseText;
+	}
 	</script>
-	<body>
-		char selection form<br><br>
-		<div id="test">empty</div>
 	</body>
 </html>
